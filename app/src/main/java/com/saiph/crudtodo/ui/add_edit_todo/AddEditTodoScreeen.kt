@@ -2,6 +2,7 @@ package com.saiph.crudtodo.ui.add_edit_todo
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.runtime.Composable
@@ -51,7 +52,7 @@ fun AddEditTodoScreen(
             .padding(innerPadding)
         ) 
         {
-            TextField(
+            OutlinedTextField(
                 value = viewModel.title,
                 onValueChange = {
                     viewModel.onEvent(AddEditTodoEvent.OnTitleChange(it))
@@ -63,7 +64,7 @@ fun AddEditTodoScreen(
                 singleLine = true
             )
             Spacer(modifier = Modifier.height(8.dp))
-            TextField(
+            OutlinedTextField(
                 value = viewModel.description,
                 onValueChange = {
                     viewModel.onEvent(AddEditTodoEvent.OnDescriptionChange(it))
@@ -71,7 +72,7 @@ fun AddEditTodoScreen(
                 placeholder = {
                     Text(text = "Description")
                 },
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxSize(),
                 singleLine = false,
                 maxLines = 5
             )
